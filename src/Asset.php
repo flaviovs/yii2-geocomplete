@@ -28,7 +28,7 @@ class Asset extends \yii\web\AssetBundle
             );
         }
 
-        $this->js[] = '//maps.googleapis.com/maps/api/js?key='
+        $this->js[] = '//maps.googleapis.com/maps/api/js?libraries=places&key='
             . urlencode($this->mapsApiKey);
     }
 }
