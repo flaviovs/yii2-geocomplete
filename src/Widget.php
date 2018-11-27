@@ -9,34 +9,14 @@ class Widget extends \yii\widgets\InputWidget
 {
     public $options = ['class' => 'form-control'];
 
-    public $mapsApiKey;
-
     public $container;
 
     public $geocompleteOptions = [];
 
-    public function init()
-    {
-        parent::init();
-
-        if (!$this->mapsApiKey) {
-            \Yii::warning(
-                "No API key defined -- geocoding is unlikely to work",
-                __METHOD__
-            );
-        }
-
-        $this->view->registerJsFile(
-            '//maps.googleapis.com/maps/api/js?libraries=places&key='
-            . urlencode($this->mapsApiKey)
-        );
-
-        Asset::register($this->view);
-    }
-
 
     public function run()
     {
+        Asset::register($this->view);
 
         if ($this->hasModel()) {
             echo Html::activeInput(
