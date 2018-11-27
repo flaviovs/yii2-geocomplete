@@ -15,7 +15,7 @@ app config:
 'components' => [
     'assetManager' => [
         'bundles' => [
-            fv\yii\geocomplete::class => [
+            fv\yii\geocomplete\Asset::class => [
                 'mapsApiKey' => 'YOUR-API-KEY',
 			]
 		]
