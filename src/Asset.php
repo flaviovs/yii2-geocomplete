@@ -6,6 +6,8 @@ class Asset extends \yii\web\AssetBundle
 {
     public $mapsApiKey;
 
+    public $sessionToken;
+
     public $sourcePath = '@bower/jquery-geocomplete';
 
     public $js = [
@@ -28,7 +30,15 @@ class Asset extends \yii\web\AssetBundle
             );
         }
 
-        $this->js[] = '//maps.googleapis.com/maps/api/js?libraries=places&key='
+        $url = '//maps.googleapis.com/maps/api/js?libraries=places&key='
             . urlencode($this->mapsApiKey);
+
+        if ($this->sessionToken === null) {
+            $url .= '&sessiontoken='
+                . urlencode(uniqid(base_convert(mt_rand(), 10, 36), true));
+        }
+
+        $this->js[] = $url;
+
     }
 }

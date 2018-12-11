@@ -23,6 +23,12 @@ app config:
 ];
 ```
 
+You can use `sessionToken` on the asset bundle configuration to
+specify the session token to be sent to Maps API (see details
+[here](https://developers.google.com/places/web-service/autocomplete#session_tokens)). The
+extension will generate a session token by default -- set this
+parameter to `false` to prevent this.
+
 **Notice** *The widget will not work properly unless you provide a
 valid API key*. See
 https://developers.google.com/maps/documentation/javascript/get-api-key
