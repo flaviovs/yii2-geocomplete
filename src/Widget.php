@@ -7,11 +7,19 @@ use yii\helpers\Json;
 
 class Widget extends \yii\widgets\InputWidget
 {
-    public $options = ['class' => 'form-control'];
+    public $options;
 
     public $container;
 
     public $geocompleteOptions = [];
+
+
+    public function init()
+    {
+        parent::init();
+
+        Html::addCssClass($this->options, ['form-control']);
+    }
 
 
     public function run()
